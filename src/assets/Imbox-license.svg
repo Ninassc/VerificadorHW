@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1" width="40px" height="40px" viewBox="0 0 40 40">
+    <circle fill="none" cx="19.889" cy="19.912" r="17.1" stroke="#8888A7" stroke-miterlimit="10" stroke-width="3.841"/>
+    <path d="M9.922 15.888h5.12s.457-3.017 5.167-3.017c3.613 0 4.345 1.326 4.345 2.057 0 1.875-8.186 4.618-8.186 8.778h5.487s.228-1.51 1.509-2.331c1.28-.823 6.399-3.43 6.399-6.172 0-3.247-3.291-6.31-9.875-6.31-6.903 0-9.966 4.846-9.966 6.995z" fill="#8888A7"/>
+    <ellipse fill="#8888A7" cx="19.272" cy="28.438" rx="2.995" ry="2.492"/>
+</svg>
