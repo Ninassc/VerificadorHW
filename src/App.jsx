@@ -29,13 +29,13 @@ function App() {
     if (tipo == "EC" && versao == "10") {
       setLinkInslador("https://tinyurl.com/InstaladorECGV6")
       setLinkAtualizador("https://tinyurl.com/AtualizadorECGV6")
-      setLinkManual("https://tinyurl.com/AtualizadorECGV6")
+      setLinkManual("https://tinyurl.com/ManualECGV6PDF")
     }
 
     else if (tipo == "EC" && versao == "11") {
-      setLinkInslador("https://tinyurl.com/InstaladorECGV6")
-      setLinkAtualizador("https://tinyurl.com/AtualizadorECGV6")
-      setLinkManual("https://tinyurl.com/AtualizadorECGV6")
+      setLinkInslador("https://tinyurl.com/ecgv11-instalador")
+      setLinkAtualizador("https://tinyurl.com/ecgv11-atualizador")
+      setLinkManual("https://tinyurl.com/ManualECGV6PDF")
     }
 
     else if (tipo == "TE" && versao == "10") {
