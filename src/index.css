@@ -25,7 +25,7 @@ body {
 
 header {
   background-color: var(--branco-principal);
-  height: 10vh;
+  height: 14vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,8 +58,8 @@ header {
 .parte-form {
   margin-top: 40px;
   background-color: var(--azul-principal);
-  max-width: 60%;
-  width: 600px;
+  max-width: 70%;
+  width: 620px;
   height: 25vh;
   display: flex;
   flex-direction: column;
