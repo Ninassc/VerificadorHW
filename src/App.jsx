@@ -64,32 +64,32 @@ function App() {
     e.preventDefault()
 
     if (nSerie.length < 11) {
-      setError("O número de série deve conter exatamente 11 caracteres.")
+      setError("Número de série inválido!")
       setDowloadAtivo(false)
       inputRef.current?.focus()
       return
     }
+
+    const tipoLocal = nSerie.slice(0, 2).toUpperCase()
 
     if (
-      nSerie.slice(0, 2) !== "EC" &&
-      nSerie.slice(0, 2) !== "TE" &&
-      nSerie.slice(0, 2) !== "TC" &&
-      nSerie.slice(0, 2) !== "TP"
+      tipoLocal !== "EC" &&
+      tipoLocal !== "TE" &&
+      tipoLocal !== "TC" &&
+      tipoLocal !== "TP"
     ) {
-      setError("Tipo de equipamento inválido.")
+      setError("Número de série inválido!")
       setDowloadAtivo(false)
       inputRef.current?.focus()
       return
     }
-
-    const tipoLocal = nSerie.slice(0, 2)
 
     if (
       (tipoLocal == "EC" && nSerie.slice(2, 4) !== "10" && nSerie.slice(2, 4) !== "11")
       ||
       ((tipoLocal == "TE" || tipoLocal == "TC" || tipoLocal == "TP") && nSerie.slice(2, 4) !== "10")
     ) {
-      setError("Versão de equipamento inválida.")
+      setError("Número de série inválido!")
       setDowloadAtivo(false)
       inputRef.current?.focus()
       return
@@ -107,7 +107,7 @@ function App() {
       anoFabricacao < 7 ||
       anoFabricacao > anoAtual2Digitos
     ) {
-      setError("Ano de fabricação inválido.")
+      setError("Número de série inválido!")
       setDowloadAtivo(false)
       inputRef.current?.focus()
       return
@@ -115,21 +115,32 @@ function App() {
 
     const mm = Number(nSerie.slice(6, 8))
 
-    if ((anoFabricacao == anoAtual2Digitos && mm > mesAtual) || mm < 1 || mm > 12) {
-      setError("Mês de fabricação inválido.")
+    if (
+      isNaN(mm) ||
+      mm < 1 ||
+      mm > 12 ||
+      (anoFabricacao === anoAtual2Digitos && mm > mesAtual)
+    ) {
+      setError("Número de série inválido!")
       setDowloadAtivo(false)
       inputRef.current?.focus()
       return
     }
+
 
     const nnn = Number(nSerie.slice(8, 11))
 
-    if (nnn < 1 || nnn > 999) {
-      setError("Número sequencial de fabricação inválido.")
+    if (
+      isNaN(nnn) ||
+      nnn < 1 ||
+      nnn > 999
+    ) {
+      setError("Número de série inválido!")
       setDowloadAtivo(false)
       inputRef.current?.focus()
       return
     }
+
 
     setTipo(tipoLocal)
     setVersao(versaoLocal)
@@ -208,12 +219,13 @@ function App() {
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="CurrentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" /></svg>
             </div>
             <p>
-              O número de série pode ser localizado em uma etiqueta na parte de trás do seu aparelho.
+              O número de série pode ser encontrado em uma etiqueta na parte inferior do aparelho.
             </p>
           </div>
         </div>
 
         <div className={`downloads ${downloadAtivo ? "ativo" : ""}`}>
+          <h4>Instaladores {tipo == "EC" ? "ECGV6" : tipo == "TE" ? "ERGO13" : tipo == "TC" ? "ERGOMET13" : "ERGO13CP"}</h4>
           <div className="instalador">
             <a href={linkInslador} >
               Baixar instalador
